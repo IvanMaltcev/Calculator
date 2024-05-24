@@ -23,24 +23,44 @@ public class CalculatorController {
     @GetMapping("/plus")
     public String calculatedSum(@RequestParam("num1") String number1,
                                 @RequestParam("num2") String number2) {
-        return calculatorService.calculatedSum(number1, number2);
+        try {
+            return String.format("%s + %s = %d", number1, number2,
+                    calculatorService.calculatedSum(number1, number2));
+        } catch (IllegalArgumentException exception) {
+            return exception.getMessage();
+        }
     }
 
     @GetMapping("/minus")
     public String calculatedDiff(@RequestParam("num1") String number1,
                                  @RequestParam("num2") String number2) {
-        return calculatorService.calculatedDiff(number1, number2);
+        try {
+            return String.format("%s - %s = %d", number1, number2,
+                    calculatorService.calculatedDiff(number1, number2));
+        } catch (IllegalArgumentException exception) {
+            return exception.getMessage();
+        }
     }
 
     @GetMapping("/multiply")
     public String calculatedOp(@RequestParam("num1") String number1,
                                @RequestParam("num2") String number2) {
-        return calculatorService.calculatedOp(number1, number2);
+        try {
+            return String.format("%s * %s = %d", number1, number2,
+                    calculatorService.calculatedOp(number1, number2));
+        } catch (IllegalArgumentException exception) {
+            return exception.getMessage();
+        }
     }
 
     @GetMapping("/divide")
     public String calculatedQuotient(@RequestParam("num1") String number1,
                                      @RequestParam("num2") String number2) {
-        return calculatorService.calculatedQuotient(number1, number2);
+        try {
+            return String.format("%s / %s = %.2f", number1, number2,
+                    calculatorService.calculatedQuotient(number1, number2));
+        } catch (ArithmeticException | IllegalArgumentException exception) {
+            return exception.getMessage();
+        }
     }
 }
