@@ -1,5 +1,6 @@
-package com.sky.calculator;
+package com.sky.calculator.controller;
 
+import com.sky.calculator.service.CalculatorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,44 +24,36 @@ public class CalculatorController {
     @GetMapping("/plus")
     public String calculatedSum(@RequestParam("num1") String number1,
                                 @RequestParam("num2") String number2) {
-        try {
-            return String.format("%s + %s = %d", number1, number2,
-                    calculatorService.calculatedSum(number1, number2));
-        } catch (IllegalArgumentException exception) {
-            return exception.getMessage();
-        }
+
+        return String.format("%s + %s = %d", number1, number2,
+                calculatorService.calculatedSum(number1, number2));
+
     }
 
     @GetMapping("/minus")
     public String calculatedDiff(@RequestParam("num1") String number1,
                                  @RequestParam("num2") String number2) {
-        try {
-            return String.format("%s - %s = %d", number1, number2,
-                    calculatorService.calculatedDiff(number1, number2));
-        } catch (IllegalArgumentException exception) {
-            return exception.getMessage();
-        }
+
+        return String.format("%s - %s = %d", number1, number2,
+                calculatorService.calculatedDiff(number1, number2));
+
     }
 
     @GetMapping("/multiply")
     public String calculatedOp(@RequestParam("num1") String number1,
                                @RequestParam("num2") String number2) {
-        try {
-            return String.format("%s * %s = %d", number1, number2,
-                    calculatorService.calculatedOp(number1, number2));
-        } catch (IllegalArgumentException exception) {
-            return exception.getMessage();
-        }
+
+        return String.format("%s * %s = %d", number1, number2,
+                calculatorService.calculatedOp(number1, number2));
+
     }
 
     @GetMapping("/divide")
     public String calculatedQuotient(@RequestParam("num1") String number1,
                                      @RequestParam("num2") String number2) {
-        try {
-            return String.format("%s / %s = %.2f", number1, number2,
-                    calculatorService.calculatedQuotient(number1, number2));
-        } catch (ArithmeticException | IllegalArgumentException exception) {
-            return exception.getMessage();
-        }
+
+        return String.format("%s / %s = %.2f", number1, number2,
+                calculatorService.calculatedQuotient(number1, number2));
+
     }
 }

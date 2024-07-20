@@ -1,4 +1,4 @@
-package com.sky.calculator;
+package com.sky.calculator.service;
 
 public interface CalculatorService {
 

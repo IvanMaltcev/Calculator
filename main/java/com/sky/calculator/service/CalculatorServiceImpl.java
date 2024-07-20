@@ -1,5 +1,7 @@
-package com.sky.calculator;
+package com.sky.calculator.service;
 
+import com.sky.calculator.exception.QuotientByZeroException;
+import com.sky.calculator.exception.ValidParamException;
 import org.springframework.stereotype.Service;
 
 import static java.lang.Double.parseDouble;
@@ -19,7 +21,7 @@ public class CalculatorServiceImpl implements CalculatorService {
         if (isValidParam(number1) && isValidParam(number2)) {
             return parseInt(number1) + parseInt(number2);
         }
-        throw new IllegalArgumentException("Укажите оба параметра в виде числа!");
+        throw new ValidParamException("Укажите оба параметра в виде числа!");
     }
 
     @Override
@@ -28,7 +30,7 @@ public class CalculatorServiceImpl implements CalculatorService {
         if (isValidParam(number1) && isValidParam(number2)) {
             return parseInt(number1) - parseInt(number2);
         }
-        throw new IllegalArgumentException("Укажите оба параметра в виде числа!");
+        throw new ValidParamException("Укажите оба параметра в виде числа!");
     }
 
     @Override
@@ -37,7 +39,7 @@ public class CalculatorServiceImpl implements CalculatorService {
         if (isValidParam(number1) && isValidParam(number2)) {
             return parseInt(number1) * parseInt(number2);
         }
-        throw new IllegalArgumentException("Укажите оба параметра в виде числа!");
+        throw new ValidParamException("Укажите оба параметра в виде числа!");
     }
 
     @Override
@@ -45,12 +47,12 @@ public class CalculatorServiceImpl implements CalculatorService {
 
         if (isValidParam(number1) && isValidParam(number2)) {
             if (parseInt(number2) == 0) {
-                throw new ArithmeticException("На ноль дельть нельзя!");
+                throw new QuotientByZeroException("На ноль делить нельзя!");
             } else {
                 return parseDouble(number1) / parseDouble(number2);
             }
         }
-        throw new IllegalArgumentException("Укажите оба параметра в виде числа!");
+        throw new ValidParamException("Укажите оба параметра в виде числа!");
     }
 
     private boolean isValidParam(String number) {
