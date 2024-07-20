@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CalculatorServiceImplParamTest {
 
-    CalculatorService out = new CalculatorServiceImpl();
+    private final CalculatorService out = new CalculatorServiceImpl();
 
     @ParameterizedTest
     @MethodSource("numbersParamForTests")
@@ -23,62 +23,62 @@ public class CalculatorServiceImplParamTest {
 
     @ParameterizedTest
     @MethodSource("noNumbersParamForTests")
-    public void ExceptionForValidParamWhenAddingTesting(String num1, String num2) {
-        Exception exception1 = assertThrows(IllegalArgumentException.class,
+    public void exceptionForValidParamWhenAddingTesting(String num1, String num2) {
+        Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> out.calculatedSum(num1, num2));
 
-        assertEquals("Укажите оба параметра в виде числа!", exception1.getMessage());
+        assertEquals("Укажите оба параметра в виде числа!", exception.getMessage());
     }
 
     @ParameterizedTest
     @MethodSource("numbersParamForTests")
     public void subtractionTesting(String num1, String num2) {
-        int actual1 = out.calculatedDiff(num1, num2);
+        int actual = out.calculatedDiff(num1, num2);
         int expected = Integer.parseInt(num1) - Integer.parseInt(num2);
-        assertEquals(expected, actual1);
+        assertEquals(expected, actual);
     }
 
     @ParameterizedTest
     @MethodSource("noNumbersParamForTests")
-    public void ExceptionForValidParamWhenSubtractingTesting(String num1, String num2) {
-        Exception exception1 = assertThrows(IllegalArgumentException.class,
+    public void exceptionForValidParamWhenSubtractingTesting(String num1, String num2) {
+        Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> out.calculatedDiff(num1, num2));
 
-        assertEquals("Укажите оба параметра в виде числа!", exception1.getMessage());
+        assertEquals("Укажите оба параметра в виде числа!", exception.getMessage());
     }
 
     @ParameterizedTest
     @MethodSource("numbersParamForTests")
     public void multiplicationTesting(String num1, String num2) {
-        int actual1 = out.calculatedOp(num1, num2);
+        int actual = out.calculatedOp(num1, num2);
         int expected = Integer.parseInt(num1) * Integer.parseInt(num2);
-        assertEquals(expected, actual1);
+        assertEquals(expected, actual);
     }
 
     @ParameterizedTest
     @MethodSource("noNumbersParamForTests")
-    public void ExceptionForValidParamWhenMultiplyingTesting(String num1, String num2) {
-        Exception exception1 = assertThrows(IllegalArgumentException.class,
+    public void exceptionForValidParamWhenMultiplyingTesting(String num1, String num2) {
+        Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> out.calculatedOp(num1, num2));
 
-        assertEquals("Укажите оба параметра в виде числа!", exception1.getMessage());
+        assertEquals("Укажите оба параметра в виде числа!", exception.getMessage());
     }
 
     @ParameterizedTest
     @MethodSource("numbersParamForTests")
     public void divisionTesting(String num1, String num2) {
-        double actual1 = out.calculatedQuotient(num1, num2);
+        double actual = out.calculatedQuotient(num1, num2);
         double expected = Double.parseDouble(num1) / Double.parseDouble(num2);
-        assertEquals(expected, actual1);
+        assertEquals(expected, actual);
     }
 
     @ParameterizedTest
     @MethodSource("noNumbersParamForTests")
-    public void ExceptionForValidParamWhenDivisionTesting(String num1, String num2) {
-        Exception exception1 = assertThrows(IllegalArgumentException.class,
+    public void exceptionForValidParamWhenDivisionTesting(String num1, String num2) {
+        Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> out.calculatedQuotient(num1, num2));
 
-        assertEquals("Укажите оба параметра в виде числа!", exception1.getMessage());
+        assertEquals("Укажите оба параметра в виде числа!", exception.getMessage());
     }
 
     public static Stream<Arguments> numbersParamForTests() {

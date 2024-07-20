@@ -16,7 +16,7 @@ public class CalculatorServiceImplTest {
     private String notNumber;
     private String emptySpace;
 
-    CalculatorService out;
+    private CalculatorService out;
 
     @BeforeEach
     public void setUp() {
@@ -35,135 +35,135 @@ public class CalculatorServiceImplTest {
     @Test
     public void additionPositiveNumbersTesting() {
 
-        int actual1 = out.calculatedSum(number1, number2);
-        assertEquals(10, actual1);
+        int actual = out.calculatedSum(number1, number2);
+        assertEquals(10, actual);
 
     }
 
     @Test
     public void additionNegativeNumbersTesting() {
 
-        int actual2 = out.calculatedSum(number3, number4);
-        assertEquals(-5, actual2);
+        int actual = out.calculatedSum(number3, number4);
+        assertEquals(-5, actual);
 
     }
 
     @Test
     public void exceptionForValidParamWhenAddingNotNumberTesting() {
 
-        Exception exception1 = assertThrows(IllegalArgumentException.class,
+        Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> out.calculatedSum(number1, notNumber));
 
-        assertEquals("Укажите оба параметра в виде числа!", exception1.getMessage());
+        assertEquals("Укажите оба параметра в виде числа!", exception.getMessage());
 
     }
 
     @Test
     public void exceptionForValidParamWhenAddingEmptySpaceTesting() {
 
-        Exception exception2 = assertThrows(IllegalArgumentException.class,
+        Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> out.calculatedSum(number1, emptySpace));
 
-        assertEquals("Укажите оба параметра в виде числа!", exception2.getMessage());
+        assertEquals("Укажите оба параметра в виде числа!", exception.getMessage());
     }
 
     @Test
     public void subtractionPositiveNumbersTesting() {
 
-        int actual1 = out.calculatedDiff(number1, number2);
-        assertEquals(0, actual1);
+        int actual = out.calculatedDiff(number1, number2);
+        assertEquals(0, actual);
     }
 
     @Test
     public void subtractionNegativeNumbersTesting() {
 
-        int actual2 = out.calculatedDiff(number3, number4);
-        assertEquals(3, actual2);
+        int actual = out.calculatedDiff(number3, number4);
+        assertEquals(3, actual);
     }
 
     @Test
     public void exceptionForValidParamWhenSubtractingNotNumberTesting() {
 
-        Exception exception1 = assertThrows(IllegalArgumentException.class,
+        Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> out.calculatedDiff(number1, notNumber));
 
-        assertEquals("Укажите оба параметра в виде числа!", exception1.getMessage());
+        assertEquals("Укажите оба параметра в виде числа!", exception.getMessage());
 
     }
 
     @Test
     public void exceptionForValidParamWhenSubtractingEmptySpaceTesting() {
 
-        Exception exception2 = assertThrows(IllegalArgumentException.class,
+        Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> out.calculatedDiff(number1, emptySpace));
 
-        assertEquals("Укажите оба параметра в виде числа!", exception2.getMessage());
+        assertEquals("Укажите оба параметра в виде числа!", exception.getMessage());
     }
 
     @Test
     public void multiplicationPositiveNumbersTesting() {
 
-        int actual1 = out.calculatedOp(number1, number2);
-        assertEquals(25, actual1);
+        int actual = out.calculatedOp(number1, number2);
+        assertEquals(25, actual);
     }
 
     @Test
     public void multiplicationNegativeNumbersTesting() {
 
-        int actual2 = out.calculatedOp(number3, number4);
-        assertEquals(4, actual2);
+        int actual = out.calculatedOp(number3, number4);
+        assertEquals(4, actual);
     }
 
     @Test
     public void exceptionForValidParamWhenMultiplyingNotNumberTesting() {
 
-        Exception exception1 = assertThrows(IllegalArgumentException.class,
+        Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> out.calculatedOp(number1, notNumber));
 
-        assertEquals("Укажите оба параметра в виде числа!", exception1.getMessage());
+        assertEquals("Укажите оба параметра в виде числа!", exception.getMessage());
 
     }
 
     @Test
     public void exceptionForValidParamWhenMultiplyingEmptySpaceTesting() {
 
-        Exception exception2 = assertThrows(IllegalArgumentException.class,
+        Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> out.calculatedOp(number1, emptySpace));
 
-        assertEquals("Укажите оба параметра в виде числа!", exception2.getMessage());
+        assertEquals("Укажите оба параметра в виде числа!", exception.getMessage());
     }
 
     @Test
     public void divisionPositiveNumbersTesting() {
 
-        double actual1 = out.calculatedQuotient(number1, number2);
-        assertEquals(1, actual1);
+        double actual = out.calculatedQuotient(number1, number2);
+        assertEquals(1, actual);
     }
 
     @Test
     public void divisionNegativeNumbersTesting() {
 
-        double actual2 = out.calculatedQuotient(number3, number4);
-        assertEquals(0.25, actual2);
+        double actual = out.calculatedQuotient(number3, number4);
+        assertEquals(0.25, actual);
     }
 
     @Test
     public void exceptionForValidParamWhenDivisionNotNumbersTesting() {
 
-        Exception exception1 = assertThrows(IllegalArgumentException.class,
+        Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> out.calculatedQuotient(number1, notNumber));
 
-        assertEquals("Укажите оба параметра в виде числа!", exception1.getMessage());
+        assertEquals("Укажите оба параметра в виде числа!", exception.getMessage());
 
     }
 
     @Test
     public void exceptionForValidParamWhenDivisionEmptySpaceTesting() {
 
-        Exception exception2 = assertThrows(IllegalArgumentException.class,
+        Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> out.calculatedQuotient(number1, emptySpace));
 
-        assertEquals("Укажите оба параметра в виде числа!", exception2.getMessage());
+        assertEquals("Укажите оба параметра в виде числа!", exception.getMessage());
     }
 
     @Test
